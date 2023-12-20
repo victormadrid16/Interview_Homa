@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Tower : MonoBehaviour
 {
@@ -11,18 +13,23 @@ public class Tower : MonoBehaviour
     public int FloorCount = 15;
     public int PlayableFloors = 8;
     public float SpecialTileChance = 0.1f;
-    public TowerTile TilePrefab;
-    public TowerTile[] SpecialTilePrefabs;
     public bool BuildOnStart = true;
 
     [Header("Scene")]
     public Transform CameraTarget;
-
+    
     private List<List<TowerTile>> tilesByFloor;
     private int currentFloor = -1;
     private int maxFloor = 0;
 
     public System.Action<TowerTile> OnTileDestroyedCallback;
+
+    private TowerTileFactory Factory => TowerTileFactory.Instance;
+
+    private void Awake()
+    {
+        Factory.Initialize();
+    }
 
     private void Start()
     {
@@ -48,11 +55,13 @@ public class Tower : MonoBehaviour
             for (int i = 0; i < TileCountPerFloor; i++) {
                 Quaternion direction = Quaternion.AngleAxis(angleStep * i, Vector3.up) * floorRotation;
                 Vector3 position = transform.position + Vector3.up * y * TileHeight + direction * Vector3.forward * towerRadius;
-                TowerTile tileInstance = Instantiate(Random.value > SpecialTileChance ? TilePrefab : SpecialTilePrefabs[Random.Range(0, SpecialTilePrefabs.Length)], position, direction * TilePrefab.transform.rotation, transform);
+                TowerTile tileInstance = Factory.Create(position, direction, transform, SpecialTileChance);
+
+                //TowerTile tileInstance = Instantiate(tilePrefab, position, rotation, transform);
+                
                 tileInstance.SetColorIndex(Mathf.FloorToInt(Random.value * TileColorManager.Instance.ColorCount));
                 tileInstance.SetFreezed(true);
                 tileInstance.Floor = y;
-                tileInstance.OnTileDestroyed += OnTileDestroyedCallback;
                 tileInstance.OnTileDestroyed += OnTileDestroyed;
                 tilesByFloor[y].Add(tileInstance);
             }
@@ -68,6 +77,7 @@ public class Tower : MonoBehaviour
 
     public void OnTileDestroyed(TowerTile tile)
     {
+        OnTileDestroyedCallback?.Invoke(tile);
         if (maxFloor > PlayableFloors - 1 && tilesByFloor != null) {
             float checkHeight = (maxFloor - 1) * TileHeight + TileHeight * 0.9f;
             float maxHeight = 0;
@@ -91,10 +101,8 @@ public class Tower : MonoBehaviour
         if (tilesByFloor != null) {
             foreach (List<TowerTile> tileList in tilesByFloor) {
                 foreach (TowerTile tile in tileList) {
-                    if (Application.isPlaying)
-                        Destroy(tile.gameObject);
-                    else
-                        DestroyImmediate(tile.gameObject);
+                    tile.OnTileDestroyed -= OnTileDestroyed;
+                    Factory.Delete(tile);
                 }
                 tileList.Clear();
             }

@@ -13,12 +13,12 @@ public class ExplodingTile : TowerTile
 
     new Collider collider;
 
-    protected override void Awake()
+    public override void Get()
     {
-        base.Awake();
+        base.Get();
         collider = GetComponent<Collider>();
     }
-    protected override void OnDestroy()
+    public override void Release()
     {
         if (CameraShakeManager.Instance)
             CameraShakeManager.Instance.Play(1);

@@ -33,13 +33,16 @@ public class TowerTile : MonoBehaviour
     private bool initialized;
     private bool freezed;
 
-    protected virtual void Awake()
+    public virtual void Get()
     {
+        gameObject.SetActive(true);
         TileColorManager.Instance.OnColorListChanged += ResetColor;
     }
 
-    protected virtual void OnDestroy()
+    public virtual void Release()
     {
+        gameObject.SetActive(false);
+
         if (CameraShakeManager.Instance)
             CameraShakeManager.Instance.Play(0);
         if (TileColorManager.Instance)
@@ -154,6 +157,6 @@ public class TowerTile : MonoBehaviour
             ParticleSystem.MainModule main = fx.main;
             main.startColor = TileColorManager.Instance.GetColor(ColorIndex);
         }
-        Destroy(gameObject);
+        TowerTileFactory.Instance.Delete(this);
     }
 }
