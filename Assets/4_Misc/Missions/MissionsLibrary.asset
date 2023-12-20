@@ -13,4 +13,17 @@ MonoBehaviour:
   m_Name: MissionsLibrary
   m_EditorClassIdentifier: 
   missions:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e5dbc1491cde6a64dbad9556d80e31f6, type: 2}
+  - {fileID: 11400000, guid: 410721b678a4ce04a838b4e94fa248e2, type: 2}
+  - {fileID: 11400000, guid: d9de70355af4b2548abbc468ec6aaee0, type: 2}
+  - {fileID: 11400000, guid: 9a9894e1554e1334ebcdbf54d5a2d9b8, type: 2}
+  - {fileID: 11400000, guid: ecc76cd4ddfe5ee48ae0c04d0c3310f1, type: 2}
+  - {fileID: 11400000, guid: 06f09edcebdca4e4cb124e6bc8276006, type: 2}
+  - {fileID: 11400000, guid: da61fe51297195a44b181298f30abfbc, type: 2}
+  - {fileID: 11400000, guid: 4eb12a7a7500bc84a84a69ef2c38ad4a, type: 2}
+  - {fileID: 11400000, guid: d7aa03eded5c5f346851ff85e74791c7, type: 2}
+  - {fileID: 11400000, guid: 783e19101b98e66488b66d8dd4e39d63, type: 2}
+  - {fileID: 11400000, guid: af79c37226ca6a34f96bbe0e9a191d4f, type: 2}
+  - {fileID: 11400000, guid: 0557b845c61ef4344b4d58e300ba11ce, type: 2}
+  - {fileID: 11400000, guid: ac7fc92aa12244b419dfd5076b8ee3ad, type: 2}
+  - {fileID: 11400000, guid: 70700762d54908c46987ce5d51955178, type: 2}

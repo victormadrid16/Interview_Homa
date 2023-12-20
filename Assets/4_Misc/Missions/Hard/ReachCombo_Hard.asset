@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ReachCombo_Hard
   m_EditorClassIdentifier: 
   Type: 4
-  TotalAmount: 120
+  TotalAmount: 80
   Difficulty: 2
   Reward:
     Type: 1

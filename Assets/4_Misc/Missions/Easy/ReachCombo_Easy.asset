@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ReachCombo_Easy
   m_EditorClassIdentifier: 
   Type: 4
-  TotalAmount: 20
+  TotalAmount: 10
   Difficulty: 0
   Reward:
     Type: 0
