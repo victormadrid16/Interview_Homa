@@ -49,7 +49,6 @@ public class TowerTileFactory : Singleton<TowerTileFactory>
 
     public void Delete(TowerTile tile)
     {
-        Debug.Log("DELETE", tile);
         if (IsPoolingEnabled)
         {
             poolTiles.Release(tile);
@@ -69,11 +68,14 @@ public class TowerTileFactory : Singleton<TowerTileFactory>
 
     private void OnGetTile(TowerTile tile)
     {
+        tile.gameObject.SetActive(true);
         tile.Get();
+
     }
     
     private void OnReleaseTile(TowerTile tile)
     {
         tile.Release();
+        tile.gameObject.SetActive(false);
     }
 }

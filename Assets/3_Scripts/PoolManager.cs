@@ -9,7 +9,6 @@ public class PoolManager<T>: MonoBehaviour where T : MonoBehaviour
     private int initialPoolSize = 2;
     
     private ObjectPool<T> objectPool;
-
     public void Initialize(Action<T> onGet = null, Action<T> onRelease = null, Action<T> onDestroy = null)
     {
         objectPool = new ObjectPool<T>(OnCreate, onGet, onRelease, onDestroy, true, initialPoolSize);
@@ -18,12 +17,14 @@ public class PoolManager<T>: MonoBehaviour where T : MonoBehaviour
     protected virtual T OnCreate()
     {
         T obj = Instantiate(Prefab, transform);
+        obj.gameObject.SetActive(false);
         return obj;
     }
     
     public virtual T Get(Vector3 position, Quaternion direction, Transform parent)
     {
         T spawnedObject = objectPool.Get();
+        spawnedObject.gameObject.SetActive(true);
         Transform trans = spawnedObject.transform;
         Quaternion rotation = Prefab.transform.rotation * direction;
         trans.position = position;
@@ -34,8 +35,8 @@ public class PoolManager<T>: MonoBehaviour where T : MonoBehaviour
 
     public virtual void Release(T target)
     {
-        Debug.Log("RELEASE THIS", target);
         objectPool.Release(target);
+        target.gameObject.SetActive(false);
         target.transform.SetParent(transform);
     }
 }

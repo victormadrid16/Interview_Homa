@@ -35,14 +35,11 @@ public class TowerTile : MonoBehaviour
 
     public virtual void Get()
     {
-        gameObject.SetActive(true);
         TileColorManager.Instance.OnColorListChanged += ResetColor;
     }
 
     public virtual void Release()
     {
-        gameObject.SetActive(false);
-
         if (CameraShakeManager.Instance)
             CameraShakeManager.Instance.Play(0);
         if (TileColorManager.Instance)
