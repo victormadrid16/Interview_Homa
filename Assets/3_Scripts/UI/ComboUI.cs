@@ -49,8 +49,11 @@ public class ComboUI : MonoBehaviour
 
     public void CountCombo(Vector3 worldPos)
     {
-        if (this.isActiveAndEnabled) {
-            if (++currentCombo > minCount) {
+        if (this.isActiveAndEnabled)
+        {
+            ++currentCombo;
+            MissionsManager.Instance.ProcessMissions(MissionType.ReachCombo, currentCombo);
+            if (currentCombo > minCount) {
                 targetPos = mainCamera.WorldToScreenPoint(worldPos);
                 comboText.text = $"x{currentCombo}";
                 if (!showingCombo) {

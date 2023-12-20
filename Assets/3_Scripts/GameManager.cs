@@ -89,12 +89,12 @@ public class GameManager : Singleton<GameManager>
         if (ballCount == 1) {
             oneBallRemaining.Play();
         }
-        else if (ballCount == 0) {
-            SaveData.PreviousHighscore = Mathf.Max(SaveData.PreviousHighscore, ((float)destroyedTileCount / tileCount) / minPercent);
-            SetGameState(GameState.WaitingLose);
+        else if (ballCount == 0)
+        {
+            Lose();
         }
     }
-
+    
     void SetGameState(GameState state)
     {
         gameState = state;
@@ -108,16 +108,31 @@ public class GameManager : Singleton<GameManager>
             destroyedTileCount++;
             float p = (float)destroyedTileCount / tileCount;
             percentCounter.SetValueSmooth(p / minPercent);
-            if (p >= minPercent) {
-                CameraShakeManager.Instance.StopAll(true);
-                CameraShakeManager.Instance.enabled = false;
-                SaveData.CurrentLevel++;
-                SaveData.PreviousHighscore = 0;
-                SetGameState(GameState.Win);
-                if (SaveData.VibrationEnabled == 1)
-                    Handheld.Vibrate();
+            if (p >= minPercent)
+            {
+                Win();
             }
         }
+    }
+
+    private void Win()
+    {
+        MissionsManager.Instance.ProcessMissions(MissionType.WinGames, 1);
+        MissionsManager.Instance.ProcessMissions(MissionType.WinGamesInRow, 1);
+        CameraShakeManager.Instance.StopAll(true);
+        CameraShakeManager.Instance.enabled = false;
+        SaveData.CurrentLevel++;
+        SaveData.PreviousHighscore = 0;
+        SetGameState(GameState.Win);
+        if (SaveData.VibrationEnabled == 1)
+            Handheld.Vibrate();
+    }
+    
+    private void Lose()
+    {
+        MissionsManager.Instance.ProcessMissions(MissionType.WinGamesInRow, 0);
+        SaveData.PreviousHighscore = Mathf.Max(SaveData.PreviousHighscore, ((float)destroyedTileCount / tileCount) / minPercent);
+        SetGameState(GameState.WaitingLose);
     }
 
     public void StartGame()

@@ -137,8 +137,15 @@ public class TowerTile : MonoBehaviour
     {
         if (Active) {
             Active = false;
+            OnExplosion();
             StartCoroutine(ChainExplodeRoutine(instant));
         }
+    }
+
+    protected virtual void OnExplosion()
+    {
+        MissionsManager.Instance.ProcessMissions(MissionType.DestroyBarrels, 1);
+
     }
 
     IEnumerator ChainExplodeRoutine(bool instant)

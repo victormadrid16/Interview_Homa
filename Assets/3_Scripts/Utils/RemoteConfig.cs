@@ -8,4 +8,5 @@
     public static bool BOOL_COLOR_BLIND_ALT_ENABLED = true; 
     public static bool BOOL_PAUSE_BUTTON_ENABLED = true;
     public static bool BOOL_OBJECT_POOL_ENABLED = true;
+    public static bool BOOL_MISSIONS_ENABLED  = true;
 }
