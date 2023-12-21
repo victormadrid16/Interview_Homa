@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DestroyBarrels_Hard
   m_EditorClassIdentifier: 
   Type: destroy_barrels
-  TotalAmount: 1500
+  TotalAmount: 100
   Difficulty: 2
   Reward:
     Type: coins

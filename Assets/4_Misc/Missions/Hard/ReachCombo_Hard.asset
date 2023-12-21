@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ReachCombo_Hard
   m_EditorClassIdentifier: 
   Type: reach_combo
-  TotalAmount: 80
+  TotalAmount: 50
   Difficulty: 2
   Reward:
     Type: gems

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ReachCombo_Medium
   m_EditorClassIdentifier: 
   Type: reach_combo
-  TotalAmount: 40
+  TotalAmount: 30
   Difficulty: 1
   Reward:
     Type: coins

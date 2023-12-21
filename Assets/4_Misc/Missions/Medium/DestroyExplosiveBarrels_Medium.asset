@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DestroyExplosiveBarrels_Medium
   m_EditorClassIdentifier: 
   Type: destroy_explosive_barrels
-  TotalAmount: 10
+  TotalAmount: 5
   Difficulty: 1
   Reward:
     Type: gems

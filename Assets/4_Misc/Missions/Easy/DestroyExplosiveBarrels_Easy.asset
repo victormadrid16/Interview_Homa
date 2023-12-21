@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DestroyExplosiveBarrels_Easy
   m_EditorClassIdentifier: 
   Type: destroy_explosive_barrels
-  TotalAmount: 5
+  TotalAmount: 2
   Difficulty: 0
   Reward:
     Type: coins
