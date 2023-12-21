@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8775242811642711087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9053ca873e0b4ecd841017497ca2eb4d, type: 3}
+  m_Script: {fileID: 11500000, guid: d9ead242f687447c8db3bb126d933976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxMissionsCount: 3
