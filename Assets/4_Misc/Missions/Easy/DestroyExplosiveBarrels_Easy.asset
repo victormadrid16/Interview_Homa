@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d09a6d81104a28abbd5398badbbed4, type: 3}
   m_Name: DestroyExplosiveBarrels_Easy
   m_EditorClassIdentifier: 
-  Type: 3
+  Type: destroy_explosive_barrels
   TotalAmount: 5
   Difficulty: 0
   Reward:
-    Type: 0
+    Type: coins
     Value: 100

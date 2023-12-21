@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d09a6d81104a28abbd5398badbbed4, type: 3}
   m_Name: DestroyExplosiveBarrels_Hard
   m_EditorClassIdentifier: 
-  Type: 3
+  Type: destroy_explosive_barrels
   TotalAmount: 10
   Difficulty: 2
   Reward:
-    Type: 1
+    Type: gems
     Value: 100

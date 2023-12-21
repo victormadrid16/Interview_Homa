@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d09a6d81104a28abbd5398badbbed4, type: 3}
   m_Name: WinGamesInRow_Hard
   m_EditorClassIdentifier: 
-  Type: 1
+  Type: win_games_in_row
   TotalAmount: 4
   Difficulty: 2
   Reward:
-    Type: 1
+    Type: gems
     Value: 100

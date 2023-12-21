@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d09a6d81104a28abbd5398badbbed4, type: 3}
   m_Name: ReachCombo_Medium
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: reach_combo
   TotalAmount: 40
   Difficulty: 1
   Reward:
-    Type: 0
+    Type: coins
     Value: 400

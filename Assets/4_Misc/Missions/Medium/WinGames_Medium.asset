@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d09a6d81104a28abbd5398badbbed4, type: 3}
   m_Name: WinGames_Medium
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: win_games
   TotalAmount: 3
   Difficulty: 1
   Reward:
-    Type: 0
+    Type: coins
     Value: 500

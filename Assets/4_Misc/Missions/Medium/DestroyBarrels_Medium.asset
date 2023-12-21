@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d09a6d81104a28abbd5398badbbed4, type: 3}
   m_Name: DestroyBarrels_Medium
   m_EditorClassIdentifier: 
-  Type: 2
+  Type: destroy_barrels
   TotalAmount: 500
   Difficulty: 1
   Reward:
-    Type: 0
+    Type: coins
     Value: 200
