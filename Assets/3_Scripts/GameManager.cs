@@ -13,6 +13,8 @@ enum GameState
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField]
+    private MissionsPanel missions;
+    [SerializeField]
     Tower tower;
     [SerializeField]
     PercentCounter percentCounter;
@@ -134,6 +136,7 @@ public class GameManager : Singleton<GameManager>
 
     public void StartGame()
     {
+        missions.HideButton();
         SetGameState(GameState.Playing);
         tower.StartGame();
     }

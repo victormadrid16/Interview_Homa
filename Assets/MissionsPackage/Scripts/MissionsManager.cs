@@ -12,6 +12,8 @@ namespace Homa.Missions
 
         protected List<Mission> currentMissions;
         protected MissionsStorage storage;
+
+        public List<Mission> CurrentMissions => currentMissions;
     
         public virtual void Initialize(MissionsLibrary library, int maxMissions)
         {
@@ -35,7 +37,20 @@ namespace Homa.Missions
             if (currentMissions.Count == 0)
             {
                 AddNewMissions();
+                return;
             }
+
+            bool areAllCompleted = currentMissions.All(x => x.IsCompleted);
+            if (areAllCompleted)
+            {
+                ClearCurrentMissions();
+                AddNewMissions();
+            }
+        }
+
+        private void ClearCurrentMissions()
+        {
+            currentMissions.Clear();
         }
 
         protected virtual void AddNewMissions()
@@ -77,5 +92,6 @@ namespace Homa.Missions
         {
             return storage.Load();
         }
+        
     }
 }

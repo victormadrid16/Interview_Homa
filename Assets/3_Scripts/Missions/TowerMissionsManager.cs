@@ -1,4 +1,6 @@
-﻿using Homa.Missions;
+﻿using System.Collections.Generic;
+using Homa.Missions;
+using Homa.Missions.Controllers;
 using UnityEngine;
 
 public class TowerMissionsManager : Singleton<TowerMissionsManager>, IMissionsManager
@@ -10,7 +12,8 @@ public class TowerMissionsManager : Singleton<TowerMissionsManager>, IMissionsMa
 
 
     private MissionsManager manager;
-    private bool IsEnabled => RemoteConfig.BOOL_MISSIONS_ENABLED;
+    public bool IsEnabled => RemoteConfig.BOOL_MISSIONS_ENABLED;
+    public int MaxMissionsCount => maxMissionsCount;
     
     private void Awake()
     {
@@ -32,5 +35,15 @@ public class TowerMissionsManager : Singleton<TowerMissionsManager>, IMissionsMa
         }
         
         manager.ProcessMissions(type,value);
+    }
+    
+    public List<Mission> GetCurrentMissions()
+    {
+        if (!IsEnabled)
+        {
+            return null;
+        }
+        
+        return manager.CurrentMissions;
     }
 }
