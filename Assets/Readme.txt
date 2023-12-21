@@ -24,6 +24,8 @@
     The Missions are created using factories, to enable each project to create child classes however they want. This is done through interfaces and the MissionsCreator class.
     The MissionLibrary is another ScriptableObject to simplify obtaining a list of missions.
     I had to install the Newtonsoft Json package, to be able to store the missions progress between sessions in runtime. This is because the complexity of the inheritance used in Mission class. This is done in MissionsStorage class.
-    
+    For the missions UI, I've created 2 simple prefabs and scripts: MissionsPanel and MissionElements.
+    Because I don't think the visual part is the thing that matters in this exercise, I used regular unity graphics.
+    The graphics should adapt properly for resolutions similar to 1920x1080.
     
     
