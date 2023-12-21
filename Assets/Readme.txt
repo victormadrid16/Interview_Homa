@@ -27,5 +27,5 @@
     For the missions UI, I've created 2 simple prefabs and scripts: MissionsPanel and MissionElements.
     Because I don't think the visual part is the thing that matters in this exercise, I used regular unity graphics.
     The graphics should adapt properly for resolutions similar to 1920x1080.
-    
+    I've also added a MenuItem in Tools/DeleteAllData to make it easier to restart the saved progress.
     
