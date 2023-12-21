@@ -54,6 +54,6 @@ public class ExplodingTile : TowerTile
 
     protected override void OnExplosion()
     {
-        MissionsManager.Instance.ProcessMissions(MissionType.DestroyExplosiveBarrels, 1);
+        TowerMissionsManager.Instance.ProcessMissions(MissionTypes.DestroyExplosiveBarrels, 1);
     }
 }

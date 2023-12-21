@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
+using Homa.Missions.Controllers;
+using Homa.Missions.Data;
+using Homa.Missions.Factory;
 
-public class MissionsCreator
+public class MissionsCreator : IMissionsCreator
 {
     
-    private IMissionsFactory defaultFactory = new MissionFactory();
-    private Dictionary<MissionType, IMissionsFactory> factoryTypes = new Dictionary<MissionType, IMissionsFactory>()
+    private IMissionsFactory defaultFactory = new MissionDefaultFactory();
+    private Dictionary<string, IMissionsFactory> factoryTypes = new ()
     {
-        { MissionType.WinGamesInRow, new MissionWinInRowFactory() },
-        { MissionType.ReachCombo, new MissionReachComboFactory() },
+        { MissionTypes.WinGamesInRow, new MissionWinInRowFactory() },
+        { MissionTypes.ReachCombo, new MissionReachComboFactory() },
     };
 
 

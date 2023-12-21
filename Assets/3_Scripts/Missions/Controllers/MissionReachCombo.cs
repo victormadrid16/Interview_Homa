@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Homa.Missions.Controllers;
+using Homa.Missions.Data;
+using UnityEngine;
 
 [System.Serializable]
 public class MissionReachCombo : Mission
@@ -14,6 +16,6 @@ public class MissionReachCombo : Mission
             return;
         }
         
-        currentAmount = Mathf.Min(value, TotalAmount);
+        CurrentAmount = Mathf.Min(value, TotalAmount);
     }
 }

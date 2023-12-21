@@ -52,7 +52,7 @@ public class ComboUI : MonoBehaviour
         if (this.isActiveAndEnabled)
         {
             ++currentCombo;
-            MissionsManager.Instance.ProcessMissions(MissionType.ReachCombo, currentCombo);
+            TowerMissionsManager.Instance.ProcessMissions(MissionTypes.ReachCombo, currentCombo);
             if (currentCombo > minCount) {
                 targetPos = mainCamera.WorldToScreenPoint(worldPos);
                 comboText.text = $"x{currentCombo}";

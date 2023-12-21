@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 enum GameState
 {
@@ -117,8 +114,8 @@ public class GameManager : Singleton<GameManager>
 
     private void Win()
     {
-        MissionsManager.Instance.ProcessMissions(MissionType.WinGames, 1);
-        MissionsManager.Instance.ProcessMissions(MissionType.WinGamesInRow, 1);
+        TowerMissionsManager.Instance.ProcessMissions(MissionTypes.WinGames, 1);
+        TowerMissionsManager.Instance.ProcessMissions(MissionTypes.WinGamesInRow, 1);
         CameraShakeManager.Instance.StopAll(true);
         CameraShakeManager.Instance.enabled = false;
         SaveData.CurrentLevel++;
@@ -130,7 +127,7 @@ public class GameManager : Singleton<GameManager>
     
     private void Lose()
     {
-        MissionsManager.Instance.ProcessMissions(MissionType.WinGamesInRow, 0);
+        TowerMissionsManager.Instance.ProcessMissions(MissionTypes.WinGamesInRow, 0);
         SaveData.PreviousHighscore = Mathf.Max(SaveData.PreviousHighscore, ((float)destroyedTileCount / tileCount) / minPercent);
         SetGameState(GameState.WaitingLose);
     }

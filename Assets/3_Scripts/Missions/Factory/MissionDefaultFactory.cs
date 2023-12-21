@@ -2,10 +2,10 @@
 using Homa.Missions.Data;
 using Homa.Missions.Factory;
 
-public class MissionReachComboFactory : IMissionsFactory
+public class MissionDefaultFactory : IMissionsFactory
 {
     public Mission Create(MissionData data)
     {
-        return new MissionReachCombo(data);
+        return new MissionDefault(data);
     }
 }
